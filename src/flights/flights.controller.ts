@@ -6,7 +6,7 @@ import { FlightsService } from './flights.service';
 import { FlightSearchResponseDto } from './dtos/flight-search-response.dto';
 import { AuthService } from '../auth/auth.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
-
+import { IFlightSearchResultTicket, IFlightSearchResult } from './interfaces/IFlightSearchApi';
 
 @Controller('flights')
 export class FlightsController {
@@ -28,18 +28,28 @@ export class FlightsController {
 
     @UseGuards(JwtAuthGuard)
     @Post('/search-all')
-    async searchAll(@Body() flightsRequestDto: FlightsRequestDto) : Promise<any>{
+    async searchAll(@Body() flightsRequestDto: FlightsRequestDto) : Promise<IFlightSearchResult>{
         let prepare = await this.flightsService.prepareSearch(flightsRequestDto) as FlightResponseDto;
         let airlines = prepare.airlines.filter(a => a.status.enable == true);
 
         let flights:Array<FlightSearchResponseDto> = [];
         for (const airline of airlines){
-            flights.push(await this.flightsService.search({
-                searchId: prepare.id,
-                airlineName: airline.label
-            }))
+            if(['azul','gol','latam','tap'].includes(airline.label.toString()))
+                flights.push(await this.flightsService.search({
+                    searchId: prepare.id,
+                    airlineName: airline.label
+                }))
         }
-        return flights;
+
+        let resp: IFlightSearchResult = {
+            tickets: []
+        }
+
+        flights.forEach(f => {
+            resp.tickets = resp.tickets.concat(this.flightsService.convertReturnToPassagemAerea(f));
+        })
+
+        return resp;
     }
 
 }

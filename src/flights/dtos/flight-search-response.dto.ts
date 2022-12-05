@@ -7,99 +7,102 @@ export class FlightSearchResponseDto{
 
 export class Flights{
     @IsString()
-    id: String;
+    id: string;
     @IsString()
-    airline: String;
+    airline: string;
     @IsString()
-    from: String;
+    from: string;
     @IsString()
-    to: String;
+    to: string;
     @IsString()
-    flightNumber: String;
+    flightNumber: string;
     @IsString()
-    cabin: String;
+    cabin: string;
     @IsString()
-    durations: String;
+    durations: string;
     @IsString()
-    departureDate: String;
+    departureDate: string;
     @IsString()
-    arrivalDate: String;
+    arrivalDate: string;
     @IsString()
-    direction: String;
+    direction: string;
     @IsNumber()
-    stops: Number;
+    stops: number;
     @IsString()
-    createdDate: String;
+    createdDate: string;
     @IsString()
-    choosedTripType: String;
+    choosedTripType: string;
     trips: Array<Trip>;
 }
 
 export class Trip{
     @IsString()
-    from: String;
+    from: string;
     @IsString()
-    to: String;
+    to: string;
     @IsString()
-    departureDate: String;
+    departureDate: string;
     @IsString()
-    arrivalDate: String;
+    arrivalDate: string;
     @IsString()
-    aircraft?: String;
+    aircraft?: string;
     @IsString()
-    carrier: String;
+    carrier: string;
     @IsString()
-    flightNumer: String;
+    flightNumer: string;
     @IsNumber()
-    duration: Number;
+    duration: number;
     @IsNumber()
-    layover: Number;
+    layover: number;
     @IsNumber()
-    stops: Number;
+    stops: number;
     @IsString()
-    cabin: String;
+    cabin: string;
     isInternational: Boolean;
 }
 
 export class Itinerary{
     @IsString()
-    outbound: String;
+    outbound: string;
     @IsString()
-    inbound?: String;
+    inbound?: string;
     @IsString()
-    searchLink: String;
+    searchLink: string;
     @IsString()
-    bookingLink: String;
+    bookingLink: string;
     @IsString()
-    availableIn: String;
+    availableIn: string;
     pricing: Pricing;
 }
 
 export class Pricing{
-    miles: Object;
+    miles: Miles;
+}
+
+export class Miles{
     @IsNumber()
-    fareTotal: Number;
+    fareTotal: number;
     @IsNumber()
-    saleTotal: Number;
+    saleTotal: number;
     @IsNumber()
-    milesTotal: Number;
+    milesTotal: number;
     adult: Adult;
 }
 
 export class Adult{
     @IsNumber()
-    quantity: Number;
+    quantity: number;
     @IsNumber()
-    fare: Number;
+    fare: number;
     @IsNumber()
-    miles: Number;
+    miles: number;
     fees: Array<Fees>;
 }
 
 export class Fees{
-    id?: Number;
-    type: String;
-    value: Number;
+    id?: number;
+    type: string;
+    value: number;
 }
 
 export class IncludedServices{
@@ -111,8 +114,8 @@ export class Outbound{
 }
 
 export class Luggage{
-    baggageCategory: String;
-    maximumQuantity: Number;
-    maximumWeightPerUnit: Number;
-    measureUnit: String;
+    baggageCategory: string;
+    maximumQuantity: number;
+    maximumWeightPerUnit: number;
+    measureUnit: string;
 }
