@@ -5,6 +5,7 @@ import { FlightResponseDto } from './dtos/flight-response.dto';
 import { FlightsService } from './flights.service';
 import { FlightSearchResponseDto } from './dtos/flight-search-response.dto';
 import { AuthService } from '../auth/auth.service';
+import { convertBRLToNumber } from './util/format';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { IFlightSearchResultTicket, IFlightSearchResult } from './interfaces/IFlightSearchApi';
 
@@ -51,6 +52,9 @@ export class FlightsController {
                 resp.tickets = resp.tickets.concat(formated);
             }
         })
+
+        resp.tickets.sort((a,b) => (convertBRLToNumber(a.stub.price) < convertBRLToNumber(b.stub.price)) ? 1 : ((convertBRLToNumber(b.stub.price) <  convertBRLToNumber(a.stub.price)) ? -1 : 0))
+
 
         return resp;
     }
