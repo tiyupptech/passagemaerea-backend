@@ -53,9 +53,7 @@ export class FlightsController {
             }
         })
 
-        resp.tickets.sort((a,b) => (convertBRLToNumber(a.stub.price) < convertBRLToNumber(b.stub.price)) ? 1 : ((convertBRLToNumber(b.stub.price) <  convertBRLToNumber(a.stub.price)) ? -1 : 0))
-
-
+        resp.tickets.sort((a,b) => (parseFloat(convertBRLToNumber(a.stub.price)) > parseFloat(convertBRLToNumber(b.stub.price))) ? 1 : ((parseFloat(convertBRLToNumber(b.stub.price)) > parseFloat(convertBRLToNumber(a.stub.price))) ? -1 : 0))
         return resp;
     }
 

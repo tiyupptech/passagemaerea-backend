@@ -161,7 +161,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/passagemaerea-backend-api/dev/1670335605992-2022-12-06T14:06:45.992Z/passagemaerea-backend-api.zip"
+          "S3Key": "serverless/passagemaerea-backend-api/dev/1670337797142-2022-12-06T14:43:17.142Z/passagemaerea-backend-api.zip"
         },
         "Handler": "dist/lambda.handler",
         "Runtime": "nodejs14.x",
@@ -179,14 +179,14 @@
         "ApiLogGroup"
       ]
     },
-    "ApiLambdaVersionXZuevGZ7k0avTuiOItn4CcT8EvOoTaIQOPcsrnuKn8": {
+    "ApiLambdaVersionkpWnYCMNb6lOuGAVhZBVzS1ZyGCbquVTPFTAz2OrE": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "ApiLambdaFunction"
         },
-        "CodeSha256": "p9Fi8UiPXXRQEGn7a26OSIqigfcu36agPBz0GlVlngA="
+        "CodeSha256": "mwcUEgLhtXYEjG+TTsW5KxYGvjULutNA+Mvp5nS/dRs="
       }
     },
     "ApiGatewayRestApi": {
@@ -262,7 +262,7 @@
         "ApiLambdaPermissionApiGateway"
       ]
     },
-    "ApiGatewayDeployment1670335601063": {
+    "ApiGatewayDeployment1670337792349": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -324,7 +324,7 @@
     "ApiLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "ApiLambdaVersionXZuevGZ7k0avTuiOItn4CcT8EvOoTaIQOPcsrnuKn8"
+        "Ref": "ApiLambdaVersionkpWnYCMNb6lOuGAVhZBVzS1ZyGCbquVTPFTAz2OrE"
       },
       "Export": {
         "Name": "sls-passagemaerea-backend-api-dev-ApiLambdaFunctionQualifiedArn"
