@@ -46,7 +46,10 @@ export class FlightsController {
         }
 
         flights.forEach(f => {
-            resp.tickets = resp.tickets.concat(this.flightsService.convertReturnToPassagemAerea(f));
+            let formated = this.flightsService.convertReturnToPassagemAerea(f);
+            if(formated.length > 0){
+                resp.tickets = resp.tickets.concat(formated);
+            }
         })
 
         return resp;
