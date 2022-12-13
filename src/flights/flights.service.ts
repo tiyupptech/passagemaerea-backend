@@ -10,9 +10,9 @@ import { IFlightSearchResultTicket } from './interfaces/IFlightSearchApi';
 import { places } from './data/places';
 
 const Api = axios.create({
-    baseURL: `https://flight-pricing-hmg.maxmilhas.com.br`,
+    baseURL: `https://flight-pricing.maxmilhas.com.br`,
 })
-Api.defaults.headers.common["authorization"] = 'JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ0ZWM0eW91LmNvbS5iciIsImlhdCI6MTUxMjA1MTkxOSwiZXhwIjoxNTQzNTg3OTI2LCJhdWQiOiJ0ZWM0eW91LmNvbS5iciIsInN1YiI6InRlYzR5b3UiLCJlbnYiOiJobWcifQ.WNCX3-HMVhAaK0xRj5YL0N5w5AhGJfdG6P94h4qOYfY'
+Api.defaults.headers.common["authorization"] = 'JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ0ZWM0eW91LmNvbS5iciIsImlhdCI6MTUxMjA1MTkxOSwiZXhwIjoxNTQzNTg3OTI2LCJhdWQiOiJ0ZWM0eW91LmNvbS5iciIsInN1YiI6InRlYzR5b3UiLCJlbnYiOiJwcmQifQ.nY_x9UWdZkaBMhBrvgCzOjLJupJMJ-N-flph9mBJK_A'
 Api.defaults.headers.common["Accept-Encoding"] = 'json';
 
 @Injectable()
@@ -29,7 +29,7 @@ export class FlightsService {
 
     public async search(req: FlightSearchRequestDto){
         try{
-            let resp = await Api.get(`/search/v2/${req.searchId}/itineraries?airline=${req.airlineName}`,{
+            let resp = await Api.get(`/search/${req.searchId}/itineraries?airline=${req.airlineName}`,{
                 headers: {
                     'Accept-Encoding': 'application/json',
                 }
@@ -51,7 +51,7 @@ export class FlightsService {
                             minimumFractionDigits: 2,
                             maximumFractionDigits: 2
                         }),
-                        dealUrl: i.bookingLink.toString(),
+                        dealUrl: `${i.bookingLink.toString()}&utm_source=passagemaerea&utm_medium=afliados_parceiro&utm_campaign=paid_lower&utm_term=site&offer_id=19`,
                         agent: {
                             id: "maxmilhaspartnerapi",
                             name: "MaxMilhas",

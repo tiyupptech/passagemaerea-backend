@@ -173,7 +173,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/passagemaerea-backend-api/dev/1670337797142-2022-12-06T14:43:17.142Z/passagemaerea-backend-api.zip"
+                "S3Key": "serverless/passagemaerea-backend-api/dev/1670960471134-2022-12-13T19:41:11.134Z/passagemaerea-backend-api.zip"
               },
               "Handler": "dist/lambda.handler",
               "Runtime": "nodejs14.x",
@@ -191,14 +191,14 @@
               "ApiLogGroup"
             ]
           },
-          "ApiLambdaVersionkpWnYCMNb6lOuGAVhZBVzS1ZyGCbquVTPFTAz2OrE": {
+          "ApiLambdaVersionXlijmltwQR1RWlQgE3hknKsUEcJ2hDpPsA7gA8ndsKg": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "ApiLambdaFunction"
               },
-              "CodeSha256": "mwcUEgLhtXYEjG+TTsW5KxYGvjULutNA+Mvp5nS/dRs="
+              "CodeSha256": "pM9KjWdWa2Gtenuqc56Vxkg/OdcOccLqTSYk0aiDwX4="
             }
           },
           "ApiGatewayRestApi": {
@@ -274,7 +274,7 @@
               "ApiLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1670337792349": {
+          "ApiGatewayDeployment1670960461451": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -336,7 +336,7 @@
           "ApiLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "ApiLambdaVersionkpWnYCMNb6lOuGAVhZBVzS1ZyGCbquVTPFTAz2OrE"
+              "Ref": "ApiLambdaVersionXlijmltwQR1RWlQgE3hknKsUEcJ2hDpPsA7gA8ndsKg"
             },
             "Export": {
               "Name": "sls-passagemaerea-backend-api-dev-ApiLambdaFunctionQualifiedArn"
@@ -476,7 +476,7 @@
         "timeout": 6,
         "runtime": "nodejs14.x",
         "vpc": {},
-        "versionLogicalId": "ApiLambdaVersionkpWnYCMNb6lOuGAVhZBVzS1ZyGCbquVTPFTAz2OrE"
+        "versionLogicalId": "ApiLambdaVersionXlijmltwQR1RWlQgE3hknKsUEcJ2hDpPsA7gA8ndsKg"
       }
     },
     "configValidationMode": "warn",
@@ -498,7 +498,7 @@
     "isDashboardMonitoringPreconfigured": false
   },
   "package": {
-    "artifactDirectoryName": "serverless/passagemaerea-backend-api/dev/1670337797142-2022-12-06T14:43:17.142Z",
+    "artifactDirectoryName": "serverless/passagemaerea-backend-api/dev/1670960471134-2022-12-13T19:41:11.134Z",
     "artifact": "passagemaerea-backend-api.zip"
   }
 }
